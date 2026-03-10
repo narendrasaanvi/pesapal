@@ -6,6 +6,7 @@ PESAPAL_SECRET=osGQ364R49cXKeOYSpaOnT++rHs=
 
 
 **Step 2**
+
 config/services.php
 
     'pesapal' => [
@@ -14,3 +15,9 @@ config/services.php
     ],
 
  
+**Step 3**
+
+//Payment
+Route::get('/payment', [PaymentController::class,'form']);
+Route::post('/payment', [PaymentController::class,'makePayment'])->name('payment.make');
+Route::get('/payment/callback', [PaymentController::class,'callback'])->name('payment.callback');

@@ -18,9 +18,6 @@ config/services.php
 **Step 3**
 
 //Payment
-
-Route::get('/payment', [PaymentController::class,'form']);
-
-Route::post('/payment', [PaymentController::class,'makePayment'])->name('payment.make');
-
-Route::get('/payment/callback', [PaymentController::class,'callback'])->name('payment.callback');
+    Route::get('/payment', [CheckoutController::class,'form']);
+    Route::post('/payment/pesapal', [PesapalController::class, 'makePayment'])->name('payment.pesapal.make');
+    Route::get('/payment/pesapal/callback', [PesapalController::class, 'callback'])->name('payment.pesapal.callback');
